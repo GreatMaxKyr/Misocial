@@ -7,17 +7,18 @@ body
 
 .headmenu
     display: flex
-    flex-direction: column
-
-.gogglesphoto
-    filter: saturate(150%)
-    background: linear-gradient(to right, rgba(#6342d9 , 0.7 ) , rgba(#8fced4, 0.7 )), url(../img/price.png) center/cover
-
+    justify-content: space-between
+    flex-direction: row   
+    flex-wrap: wrap
+    padding-bottom: 50px
 
 .white,    
 .white a 
     color: #fff
 
+.gogglesphoto
+    filter: saturate(150%)
+    background: linear-gradient(to right, rgba(#6342d9 , 0.7 ) , rgba(#8fced4, 0.7 )), url(../img/price.png) center/cover
 
 .wordslogo
     display: inline-block
@@ -37,207 +38,337 @@ body
     position: absolute
     background-image: url(../img/Symbol.png)
 
-.navigatemenu
-    display: inline-block  
-    margin-top: -10px 
-
-.navigatemenu ul
-    list-style: none
-    padding-bottom: 50px
-    display: flex
-    align-items: baseline
-    justify-content: flex-start
-    flex-wrap: wrap
-
-.navigatemenu li
-    display: inline-block
-    padding: 0 0 15px 3%
-
-.navigatemenu li:hover
-    text-decoration: underline
-    display: inline-block
-
-.navigatemenu a 
-    text-decoration: none
-    font-size: 16px
-    font-weight: 500
-
-.price 
-    text-align: center
-
-.socmark
-    display: inline-block
+.hamburger 
     position: relative
-    font-size: 14px
-    letter-spacing: 1px
-    text-transform: uppercase
-    color: #fff
-    font-weight: 700
+    padding: 10px 0
+    width: 50px
+    height: 20px
+    cursor: pointer
 
-.socmark:before
+
+.hamburger span,
+.hamburger span:before,
+.hamburger span:after 
     content: ""
     position: absolute
-    left: 260px
-    top: 5px
-    width: 20px
-    height: 3px
-    border-bottom: 1px solid #fff
+    width: 40px
+    height: 7px
+    background-color: #fff
+    border-radius: 5px
+    top: 20px
+    transition: box-shadow .25s ease-in-out
 
-.socmark:after
-    content: ""
+
+.hamburger span 
+    transform: translateY(-50%)
+
+
+.hamburger span:before 
+    top: 15px
+
+
+.hamburger span:after 
+    top: -15px
+
+
+.hamburger-open span,
+.hamburger-open span:before,
+.hamburger-open span:after 
+    background-color: #fff
+
+
+.hamburger-open span 
+    animation: fade .1s linear .6s forwards
+    box-shadow: 0 0 5px 2px #ccc
+
+
+.hamburger-open span:before 
+    animation: left .5s ease-in forwards
+    box-shadow: 0 0 5px 2px #ccc
+
+
+.hamburger-open span:after 
+    animation: right .7s ease-in forwards
+    box-shadow: 0 0 5px 2px #ccc
+
+
+@keyframes right 
+    0% 
+        top: -15px
+        left: 0
+    
+
+    30% 
+        top: -15px
+        left: 75px
+    
+
+    70% 
+        top: -50px
+        left: 75px
+        transform: rotate(-225deg)
+    
+
+    100% 
+        top: 0
+        left: 0
+        transform: rotate(-225deg)
+    
+
+
+@keyframes left 
+    0% 
+        top: 15px
+        left: 0
+    
+
+    30% 
+        top: 15px
+        left: -75px
+    
+
+    70% 
+        top: -50px
+        left: -75px
+        transform: rotate(225deg)
+    
+
+    100% 
+        top: 0
+        left: 0
+        transform: rotate(225deg)
+    
+
+
+@keyframes fade 
+    from 
+        background-color: #777
+    
+
+    to 
+        background-color: transparent
+        box-shadow: none
+    
+
+
+.navigatemenu
+    display: none 
+    margin-top: -10px 
     position: absolute
-    right: 260px
-    top: 5px
-    width: 20px
-    height: 3px
-    border-bottom: 1px solid #fff
+    z-index: 2
+    left: 80px
+    top: 0
+    padding-right: 8.5%
+    list-style: none
+    background-color: #6e45e2
 
-.priceh1
-    margin: 0
-    font-size: 86px
-    letter-spacing: -3px
-    color: #fff
-    font-weight: 500
+    ul
+        list-style: none
+        padding: 0
+        display: flex
+        align-items: baseline
+        justify-content: flex-start
+        flex-wrap: wrap
 
-.loremtxt
-    padding-left: 20%
-    width: 60%
-    font-size: 16px
-    color: #ffffff
-    font-weight: 400
+    li
+        padding: 0 0 0 3%
 
-.navigatemenu .getstarted
-    font-size: 12px
-    margin-left: 3%
-    letter-spacing: 1px
-    text-transform: uppercase
-    font-weight: 700
-    text-align: center
-    padding: 15px 25px
-    border-radius: 25px
-    border: 1px solid #ffffff
+
+        a 
+            text-decoration: none
+            font-size: 16px
+            font-weight: 500
+
+        a:hover
+            text-decoration: underline
+            display: inline-block
+
+        .getstarted
+            display: inline-block
+            font-size: 12px
+            letter-spacing: 1px
+            text-transform: uppercase
+            font-weight: 700
+            text-align: center
+            padding: 15px 25px
+            border-radius: 25px
+            border: 1px solid #ffffff
+
+        .getstarted:hover
+            text-decoration: none
 
 .scalea:hover
     transform: scale(1.05)
     transition: all 0.3s ease
 
+.price 
+    text-align: center
+
+    .socmark
+        display: inline-block
+        position: relative
+        font-size: 14px
+        letter-spacing: 1px
+        text-transform: uppercase
+        color: #fff
+        font-weight: 700
+
+    .socmark:before
+        content: ""
+        position: absolute
+        left: 260px
+        top: 5px
+        width: 20px
+        height: 3px
+        border-bottom: 1px solid #fff
+
+    .socmark:after
+        content: ""
+        position: absolute
+        right: 260px
+        top: 5px
+        width: 20px
+        height: 3px
+        border-bottom: 1px solid #fff
+
+    .priceh1
+        margin: 0
+        font-size: 86px
+        letter-spacing: -3px
+        color: #fff
+        font-weight: 500
+
+    .loremtxt
+        padding-left: 20%
+        width: 60%
+        font-size: 16px
+        color: #ffffff
+        font-weight: 400
+
 .select
     text-align: center
 
-.select h2
-    margin: 0
-    margin-bottom: 10px
-    font-size: 60px
-    letter-spacing: -2px
-    color: #4f4f6f
-    font-weight: 500
-    text-align: center
+    h2
+        margin: 0
+        margin-bottom: 10px
+        font-size: 60px
+        letter-spacing: -2px
+        color: #4f4f6f
+        font-weight: 500
+        text-align: center
 
-.select p
-    text-align: center
-    color: #9fa4af
+    p
+        text-align: center
+        color: #9fa4af
 
-.m
-    display: inline-block
-    margin-bottom: -10px
-    position: relative
-    text-transform: uppercase
-    font-weight: 700
+    .m
+        display: inline-block
+        margin-bottom: -10px
+        position: relative
+        text-transform: uppercase
+        font-weight: 700
 
-.m:before
-    content: ""
-    position: absolute
-    bottom: 10px
-    left: 75px
-    width: 20px
-    height: 3px
-    border-bottom: 1px solid #6e45e2
+    .m:before
+        content: ""
+        position: absolute
+        bottom: 10px
+        left: 75px
+        width: 20px
+        height: 3px
+        border-bottom: 1px solid #6e45e2
 
-.m:after
-    content: ""
-    position: absolute
-    bottom: 10px
-    right: 75px
-    width: 20px
-    height: 3px
-    border-bottom: 1px solid #6e45e2
+    .m:after
+        content: ""
+        position: absolute
+        bottom: 10px
+        right: 75px
+        width: 20px
+        height: 3px
+        border-bottom: 1px solid #6e45e2
 
-.sp
-    padding-bottom: 50px
-    font-size: 16px
-    font-weight: 400
+    .sp
+        padding-bottom: 50px
+        font-size: 16px
+        font-weight: 400
 
-.card1,
-.card2,
-.card3 
-    width: 90%
-    height: 100%
-    padding: 60px 5%
-    display: inline-block
-    margin: 30px 17.5px
-    border-radius: 30px
-    background-color: #fff
-    text-align: center
+.cards
+    display: flex
+    flex-direction: column    
+    justify-content: space-between
 
-.card2
-    filter: drop-shadow(0 0 46px rgba(204,204,223,0.71))
+    .card1,
+    .card3
+        background-color: #fff
+        border: 1px solid #d7dbe8
 
-.card1,
-.card3
-    background-color: #fff
-    border: 1px solid #d7dbe8
+    .card2
+        filter: drop-shadow(0 0 46px rgba(204,204,223,0.71))
 
-.priceh
-    margin: 15px
-    position: relative
-    font-size: 60px
-    letter-spacing: -2px
-    color: #4f4f6f
-    font-weight: 500
+    .card1,
+    .card2,
+    .card3 
+        height: 100%
+        padding: 60px 5%
+        display: inline-block
+        margin: 30px 0
+        border-radius: 30px
+        background-color: #fff
+        text-align: center
 
-.priceh:before
-    content: "$"
-    top: 15px
-    right: 67px
-    position: absolute
-    font-size: 16px
-    letter-spacing: -1px
-    color: #4f4f6f
-    font-weight: 500
 
-.short:before
-    right: 40px   
+        .imgblock
+            display: inline-block
+            height: 120px
+            width: 120px
 
-.priceh span
-    top: 40px
-    font-size: 16px
-    position: absolute
+        .priceh
+            margin: 15px
+            position: relative
+            font-size: 60px
+            letter-spacing: -2px
+            color: #4f4f6f
+            font-weight: 500
 
-.card1 p,
-.card2 p,
-.card3 p 
-    font-size: 16px
-    padding-bottom: 25px
-    color: #9fa4af
-    font-weight: 400
+            span
+                top: 40px
+                font-size: 16px
+                position: absolute
 
-.cards-main .card2 a 
-    color: #fff
-    background-color: #6e45e2  
+        .priceh:before
+            content: "$"
+            top: 15px
+            right: 67px
+            position: absolute
+            font-size: 16px
+            letter-spacing: -1px
+            color: #4f4f6f
+            font-weight: 500
 
-.card1 a,
-.card2 a,
-.card3 a 
-    padding: 15px 50px
-    font-size: 12px
-    letter-spacing: 1px
-    text-transform: uppercase
-    text-decoration: none
-    color: #c2c9db
-    font-weight: 700
-    border-radius: 25px
-    filter: drop-shadow(0 0 10.5px rgba(204,204,223,0.5))
-    border: 1px solid #d7dbe8
+        .short:before
+            right: 40px   
+
+
+        p 
+            font-size: 16px
+            padding-bottom: 25px
+            color: #9fa4af
+            font-weight: 400
+
+        .bediff
+            color: #fff
+            background-color: #6e45e2
+
+        a 
+            padding: 15px 50px
+            font-size: 12px
+            letter-spacing: 1px
+            text-transform: uppercase
+            text-decoration: none
+            color: #c2c9db
+            font-weight: 700
+            border-radius: 25px
+            filter: drop-shadow(0 0 10.5px rgba(204,204,223,0.5))
+            border: 1px solid #d7dbe8            
 
 footer
     padding-top: 25px
@@ -245,52 +376,64 @@ footer
 .data
     display: block
     height: 500px
+    padding-bottom: 20px
     filter: saturate(150%)
     background: linear-gradient(to right, rgba(#6342d9 , 0.7 ) , rgba(#8fced4, 0.7 )), url(../img/data.png) center/cover
     text-align: center
 
-.datap
-    padding-top: 150px
-    font-size: 14px
-    letter-spacing: 1px
-    text-transform: uppercase
-    color: #fff
-    font-weight: 700
+    .datap
+        padding-top: 150px
+        font-size: 14px
+        letter-spacing: 1px
+        text-transform: uppercase
+        color: #fff
+        font-weight: 700
 
-.datah2 
-    margin: 0
-    font-size: 60px
-    letter-spacing: -2px
-    color: #fff
-    font-weight: 500
+    .datah2 
+        margin: 0
+        font-size: 60px
+        letter-spacing: -2px
+        color: #fff
+        font-weight: 500
 
-.dataa1 a,
-.dataa2 a
-    margin-top: 10px   
-    display: inline-block
-    padding: 15px 50px
-    font-size: 12px
-    letter-spacing: 1px
-    text-transform: uppercase
-    text-decoration: none
-    color: #c2c9db
-    font-weight: 700
-    border-radius: 25px
-    border: 1px solid #d7dbe8 
-    background-color: #fff
+    a
+        margin-top: 10px   
+        display: inline-block
+        padding: 15px 50px
+        font-size: 12px
+        letter-spacing: 1px
+        text-transform: uppercase
+        text-decoration: none
+        color: #c2c9db
+        font-weight: 700
+        border-radius: 25px
+        border: 1px solid #d7dbe8 
+        background-color: #fff
 
-.dataa1 a
-    margin-top: 15px
-    padding: 15px 72px    
+    .dataa1 a
+        margin-top: 15px
+        padding: 15px 72px    
+        border: none
+        color: #fff
+        background-color: #6e45e2
+
+.bottommenu li:last-child a
     border: none
     color: #fff
-    background-color: #6e45e2
+    background-color: #6e45e2    
 
-.copy
-    display: flex
-    padding: 20px 0 25px
-    justify-content: space-between
-    position: relative
+.bottomenu
+
+    li
+
+
+        a 
+            font-size: 16px
+            color: #6a6a77
+            font-weight: 500  
+
+        a:hover
+            color: #756edc
 
 .copy:before 
     content: ""
@@ -302,37 +445,34 @@ footer
     height: 1px
     background-color: #bdbdc2
 
-.bottommenu li a 
-    font-size: 16px
-    color: #6a6a77
-    font-weight: 500  
+.copy
+    display: flex
+    padding: 20px 0 25px
+    justify-content: space-between
+    position: relative
 
-.bottommenu li a:hover
-    color: #756edc
 
-.bottommenu ul > a
-    border: none
-    color: #fff
-    background-color: #6e45e2    
+    p
+        opacity: 0.502
+        font-size: 14px
+        color: #6a6a77
+        font-weight: 500 
 
-.copy p
-    opacity: 0.502
-    font-size: 14px
-    color: #6a6a77
-    font-weight: 500 
+    div
+        padding: 15px 0 0
+        display: flex
+        flex-wrap: nowrap
+        flex-direction: row
 
-.social
-    padding: 15px 0 0
-
-.fb,
-.tw,
-.g,
-.inst
-    padding: 5px
-    opacity: 0.502
-    font-size: 16px
-    line-height: 19px
-    color: #6a6a77
+        .fb,
+        .tw,
+        .g,
+        .inst
+            padding: 5px
+            opacity: 0.502
+            font-size: 16px
+            line-height: 19px
+            color: #6a6a77
     
             
 @media screen and (min-width: 480px) 
@@ -343,17 +483,27 @@ footer
     .dataa1
         margin-right: 10px
     
-@media screen and (min-width: 547px)    
+@media screen and (min-width: 625px)    
+
+    .hamburger
+        display: none
+
+    .navigatemenu 
+        background-color: transparent
+        display: block
+        position: static
+
+    .navigatemenu ul
+        flex-wrap: nowrap    
 
 @media screen and (min-width: 930px)
 
     .headmenu
         display: flex
         justify-content: space-between
-        flex-direction: row
 
 @media screen and (min-width: 1046px)        
-    .card1,
-    .card2,
-    .card3
-        width: 20%
+    
+    .cards
+        flex-direction: row
+        column-gap: 25px
