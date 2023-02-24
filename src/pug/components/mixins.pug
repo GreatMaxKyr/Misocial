@@ -1,5 +1,20 @@
+-
+    let menu = [
+        {name:"Home", url:"#"},
+        {name:"Why MISOCIAL", url:"#"},
+        {name:"Features", url:"#"},
+        {name:"Articles", url:"#"},
+        {name:"Pricing", url:"#"},
+    ]
 
-
-mixin navigmenu (items)
-    for item in items
-        
+mixin navigmenu (items, navigclass, hambclass)
+    nav.navigatemenu(class=navigclass)
+        ul
+            for item in items
+                li 
+                    a(href=item.url) #{item.name}
+            li 
+                a.getstarted.scalea(href="#") get started  
+    .hamburger(class=hambclass)
+        span  
+    

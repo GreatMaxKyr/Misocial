@@ -73,11 +73,11 @@ body
 
 
             &:before 
-                top: 15px
+                top: 12px
 
 
             &:after 
-                top: -15px
+                top: -12px
 
 
     .hamburger-open span,
@@ -100,6 +100,17 @@ body
                 animation: right .7s ease-in forwards
                 box-shadow: 0 0 5px 2px #ccc
 
+    .black
+
+        span,
+        span:before,
+        span:after 
+            background-color: #37374a
+
+        .hamburger-open span,
+        .hamburger-open span:before,
+        .hamburger-open span:after 
+            background-color: #37374a
 
     @keyframes right 
         0% 
@@ -183,32 +194,33 @@ body
             +media(860)    
                 flex-wrap: nowrap     
 
-        li
-            padding: 0 0 0 3%
+            li
+                padding: 0 0 0 3%
 
 
-            a 
-                text-decoration: none
-                font-size: 16px
-                font-weight: 500
+                a 
+                    text-decoration: none
+                    font-size: 16px
+                    font-weight: 500
+                    white-space: nowrap
 
-                &:hover
-                    text-decoration: underline
+                    &:hover
+                        text-decoration: underline
+                        display: inline-block
+
+                .getstarted
                     display: inline-block
+                    font-size: 12px
+                    letter-spacing: 1px
+                    text-transform: uppercase
+                    font-weight: 700
+                    text-align: center
+                    padding: 15px 25px
+                    border-radius: 25px
+                    border: 1px solid #fff
 
-            .getstarted
-                display: inline-block
-                font-size: 12px
-                letter-spacing: 1px
-                text-transform: uppercase
-                font-weight: 700
-                text-align: center
-                padding: 15px 25px
-                border-radius: 25px
-                border: 1px solid #fff
-
-            .getstarted:hover
-                text-decoration: none
+                    &:hover
+                        text-decoration: none
 
     .scalea:hover
         transform: scale(1.05)
