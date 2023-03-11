@@ -13,7 +13,7 @@ mixin navigmenu (items, navigclass, hambclass)
             for item in items
                 li 
                     a(href=item.url) #{item.name}
-            li 
+            li.getstrtedli 
                 a.getstarted.scalea(href="#") get started  
     .hamburger(class=hambclass)
         span  
