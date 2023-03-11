@@ -3,6 +3,7 @@ let navigatemenu = document.querySelector(".navigatemenu")
 hamburger.onclick = function () {
     navigatemenu.classList.toggle("active-burger")
     hamburger.classList.toggle("hamburger-open")
+    document.body.classList.toggle("noscroll")
 }
 
 let black = document.querySelector(".black")
