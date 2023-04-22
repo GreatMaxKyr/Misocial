@@ -22,6 +22,11 @@ body
     flex-direction: row   4
     flex-wrap: wrap
     padding-bottom: 50px
+    flex-direction: column
+    align-items:  flex-end
+    +media(375)
+        flex-direction: row
+        align-items: normal
     +media(930)        
         display: flex
         justify-content: space-between
@@ -54,7 +59,8 @@ body
 
 .hamburger 
     position: relative
-    padding: 10px 0
+    padding: 10px 0 
+    // margin-left: 5px
     width: 50px
     height: 20px
     cursor: pointer
@@ -233,7 +239,7 @@ body
     padding-right: 0
     width: 100vw
     height: 100vh
-    top: 120px
+    top: 130px
     left: 0
     list-style: none
     background-color: #fff
@@ -253,7 +259,7 @@ body
         z-index: 11
         left: 14vw
         right: 16vw
-        top: 45px
+        top: 40px
         border-bottom: 1px solid #ccc
 
     ul
@@ -294,31 +300,34 @@ body
         &:before
             content: ""
             position: absolute
-            left: 265px
+            // left: 267px
+            right: -25px
             top: 5px
             width: 20px
             height: 3px
             border-bottom: 1px solid #fff
             +media(350)
-                left: 280px
+                right: -30px
 
         &:after
             content: ""
             position: absolute
-            right: 265px
+            left: -25px
             top: 5px
             width: 20px
             height: 3px
             border-bottom: 1px solid #fff
             +media(350)
-                right: 280px
+                left: -30px
 
     .priceh1
         margin: 0
-        font-size: 6rem
+        font-size: 4rem
         letter-spacing: -3px
         color: #fff
         font-weight: 500
+        +media(590)
+            font-size: 6rem
 
     .loremtxt
         padding-left: 20%
@@ -547,7 +556,9 @@ footer
     padding: 20px 0 25px
     justify-content: space-between
     position: relative
-
+    flex-direction: column
+    +media(375)
+        flex-direction: row
 
     p
         opacity: 0.502
