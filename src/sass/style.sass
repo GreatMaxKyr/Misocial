@@ -3,6 +3,7 @@
         @content
 
 $grey : #9fa4af
+$colorwhite : #fff
 
 html
     font-size: 0.7px
@@ -40,7 +41,7 @@ body
         top: 50%
         width: 25rem
         height: 1rem
-        border-bottom: 1px solid #fff
+        border-bottom: 1px solid $colorwhite
 
     &:before
         right: -40rem
@@ -57,11 +58,11 @@ body
     justify-content: space-between
     align-items: center
     flex-wrap: nowrap
-    padding-bottom: 100px
+    padding-bottom: 100rem
 
 .white,    
 .white a 
-    color: #fff
+    color: $colorwhite
 
 .gogglesphoto
     filter: saturate(150%)
@@ -70,33 +71,40 @@ body
 .wordslogo
     display: inline-block
     position: relative
-    padding-left: 60px
+    padding-left: 60rem
     font-size: 30rem
     letter-spacing: 6px
     font-weight: 700
 
     &:before
         content: ""
-        width: 32px
-        height: 32px
+        width: 32rem
+        height: 32rem
         left: 5px
         top: 1rem
         position: absolute
         background-size: contain
         background-image: url(../img/Symbol.png)
+        animation: planet 5s linear infinite
+        animation-play-state: paused
 
     &:hover::before
-        transition: all 15s ease
-        transform: rotate(1080deg)
+        animation-play-state: running
+        
+    @keyframes planet
+        0%        
+            transform: rotate(0deg)
+        100%
+            transform: rotate(360deg)        
 
 .hamburger 
     position: relative
-    padding: 10px 0 
+    padding: 10rem 0 
     margin-left: 12px
     width: 50px
     height: 20px
     cursor: pointer
-    +media(962)    
+    +media(1085)    
         display: none
 
     span,
@@ -107,7 +115,7 @@ body
         width: 40px
         height: 7px
         background-color: #fff
-        border-radius: 5px
+        border-radius: 5rem
         top: 20px
         transition: box-shadow .25s ease-in-out
 
@@ -218,10 +226,11 @@ body
     display: none 
     position: relative
     list-style: none
-    +media(962)    
+    +media(1085)    
         background-color: transparent
+        transform: translateX(0) 
         display: block
-        position: static    
+        position: static  
 
     ul
         list-style: none
@@ -230,18 +239,22 @@ body
         align-items: baseline
         justify-content: flex-start
         flex-wrap: wrap
-        +media(962)    
+        +media(1085)    
             flex-wrap: nowrap     
+
+        .getstrtedli
+            +media(1085)
+                padding-left: 30rem
 
         li
             a 
                 position: relative
                 display: inline-block
-                padding: 15px
+                padding: 30rem
                 font-size: 15rem
                 font-weight: 500
                 text-decoration: none
-                color: #fff
+                color: $colorwhite
                 white-space: nowrap
 
                 &::before
@@ -265,9 +278,9 @@ body
                 text-transform: uppercase
                 font-weight: 700
                 text-align: center
-                padding: 15px 25px
-                border-radius: 25px
-                border: 1px solid #fff
+                padding: 15rem 25rem
+                border-radius: 25rem
+                border: 1px solid $colorwhite
 
                 &::before
                     content: ""
@@ -293,17 +306,27 @@ body
     background-color: #fff
     border-top: 2px solid #ccc
     z-index: 10
-    +media(860)
+    box-shadow: 0 0 50px 20px #ccc
+    animation-play-state: running
+    animation: coming 1.5s  ease-in-out 1
+    +media(1085)
         display: none
+     
+    @keyframes coming 
+        0%
+            transform: translateX(-100%)
 
+        100%
+            transform: translateX(0) 
+    
     &::before
         content: "Pages"
         color: $grey
         position: absolute
         font-size: 16rem
-        padding-bottom: 30px
+        padding-bottom: 30rem
         padding-right: 60vw
-        padding-left: 10vw
+        padding-left: 3vw
         z-index: 11
         left: 14vw
         right: 16vw
@@ -311,23 +334,33 @@ body
         border-bottom: 1px solid #ccc
 
     ul
-        padding-top: 120px
+        padding-top: 120rem
+
+        // .getstartedli
 
         li
             width: 100%
             text-align: left
-            padding-bottom: 10px
+            padding-bottom: 10rem
             padding-left: 25vw
+            position: relative
+
+
+            &::before
+                content: ""
+                position: absolute
+                width: 10rem
+                height: 2rem
+                top: 40rem
+                background-color: #ccc
+                z-index: 11
 
             a
                 color: #555
-            
-            .getstarted
-                border: 1px solid #ccc
 
-        .getstrtedli
-            padding-bottom: 0
-            margin-left: -25px
+            .getstarted
+                border: none
+                padding: 32rem 25rem
     
 .scalea:hover
     transform: scale(1.05)
@@ -342,7 +375,7 @@ body
         font-size: 14rem
         letter-spacing: 1px
         text-transform: uppercase
-        color: #fff
+        color: $colorwhite
         font-weight: 700
 
     
@@ -351,27 +384,27 @@ body
         margin: 0
         font-size: 86rem
         letter-spacing: -3px
-        color: #fff
+        color: $colorwhite
         font-weight: 500
 
     .loremtxt
         margin: 0 auto
-        padding-top: 20px
-        max-width: 390px
+        padding-top: 20rem
+        max-width: 390rem
         text-align: center
         font-size: 16rem
-        color: #fff
+        color: $colorwhite
         font-weight: 400
 
     .arrow
         position: relative
         display: inline-block
         margin-top: 100px
-        width: 65px
-        height: 65px
-        border-radius: 32px
+        width: 65rem
+        height: 65rem
+        border-radius: 32rem
         filter: drop-shadow(0 0 10.5px rgba(204,204,223,0.5))
-        background-color: #ffffff
+        background-color: #fff
 
         &::before,
         &::after
@@ -380,18 +413,18 @@ body
             position: absolute            
 
         &::before           
-            width: 2px
-            height: 15px
-            top: 25px
-            right: 31px
+            width: 2rem
+            height: 15rem
+            top: 25rem
+            right: 31rem
             background-color: #9fa4af
 
         &::after 
-            width: 10px
-            height: 10px
+            width: 10rem
+            height: 10rem
             right: 50%
             transform: rotate(45deg) translate(25.3%,-50%)
-            bottom: 22.5px
+            bottom: 22.5rem
             border-bottom: 2px solid #9fa4af
             border-right: 2px solid #9fa4af
 
@@ -402,7 +435,7 @@ body
         font-size: 14rem
         display: inline-block
         z-index: -1
-        margin-bottom: -10px
+        margin-bottom: -10rem
         text-transform: uppercase
         font-weight: 700
 
@@ -420,9 +453,9 @@ body
 
     .sp
         margin: 0 auto
-        padding: 25px 0 50px
-        max-width: 395px
-        padding-bottom: 50px
+        padding: 25rem 0 50rem
+        max-width: 395rem
+        padding-bottom: 50rem
         font-size: 16rem
         font-weight: 400
 
@@ -437,7 +470,7 @@ body
     +media(1024)    
         flex-direction: row
         justify-content: space-between
-        column-gap: 20px
+        column-gap: 20rem
         flex-wrap: nowrap
 
     .card1:hover,
@@ -449,7 +482,7 @@ body
     .card3:hover .bediff,
     .card2:hover .bediff
             background-color: #6e45e2
-            color: #fff
+            color: $colorwhite
             border: 1px solid transparent
 
     .card1,
@@ -458,10 +491,10 @@ body
         background-color: #fff
         border: 1px solid #d7dbe8
         height: 100%
-        padding: 60px 5%
+        padding: 60rem 5%
         display: inline-block
-        margin: 30px 0
-        border-radius: 30px
+        margin: 30rem 0
+        border-radius: 30rem
         text-align: center
         +media(768)
             max-width: 300rem
@@ -473,11 +506,15 @@ body
             display: flex
             align-items: center
             justify-content: center
-            height: 120rem
+
+            img
+                height: 110rem
+                max-width: 120rem
+
 
         .pp   
             padding: 0
-            margin-bottom: -10px 
+            margin-bottom: -10rem
             text-align: center
 
             .personal
@@ -488,7 +525,7 @@ body
                 font-weight: 700
 
         .priceh
-            margin: 15px
+            margin: 15rem
             position: relative
             font-size: 60rem
             color: #4f4f6f
@@ -496,8 +533,8 @@ body
 
             &:before
                 content: "$"
-                top: 15px
-                left: -8px
+                top: 15rem
+                left: -8rem
                 position: absolute
                 font-size: 16rem
                 letter-spacing: -1px
@@ -505,25 +542,25 @@ body
                 font-weight: 500
 
             span
-                top: 40px
+                top: 40rem
                 font-size: 16rem
 
         p 
             font-size: 16rem
-            padding-bottom: 25px
+            padding-bottom: 25rem
             text-align: center
             color: $grey
             font-weight: 400
 
         a 
-            padding: 15px 50px
+            padding: 15rem 50rem
             font-size: 12rem
             letter-spacing: 1px
             text-transform: uppercase
             text-decoration: none
             color: #c2c9db
             font-weight: 700
-            border-radius: 25px
+            border-radius: 25rem
             filter: drop-shadow(0 0 10.5px rgba(204,204,223,0.5))
             border: 1px solid #d7dbe8            
 
@@ -540,66 +577,78 @@ footer
 
 .data
     display: block
-    height: 500px
-    padding: 0 20rem 20px
+    height: 500rem
+    padding: 0 20rem 20rem
     filter: saturate(150%)
     background: linear-gradient(to right, rgba(#6342d9 , 0.7 ) , rgba(#8fced4, 0.7 )), url(../img/data.png) center/cover
     text-align: center
 
     .datap
-        padding-top: 150px
+        padding-top: 160rem
         font-size: 14rem
         letter-spacing: 1px
         text-transform: uppercase
-        color: #fff
-        font-weight: 700
+        color: $colorwhite
+        font-weight: 700            
 
     .datah2 
         margin: 0
         font-size: 60rem
         letter-spacing: -2px
-        color: #fff
+        color: $colorwhite
         font-weight: 500
 
     a
-        margin-top: 10px   
         display: inline-block
-        padding: 15px 50px
+        padding: 15rem 50rem
         font-size: 12rem
         letter-spacing: 1px
         text-transform: uppercase
         text-decoration: none
         color: #c2c9db
         font-weight: 700
-        border-radius: 25px
+        border-radius: 25rem
         border: 1px solid #d7dbe8 
         background-color: #fff
 
-    .dataa2
-        display: inline-block
+    .dataa
+        padding-top: 20rem
+        display: flex
+        align-content: center
+        justify-content: center
+        row-gap: 10rem
+        column-gap: 10rem
+        flex-wrap: wrap
+        +media(425)
 
-    .dataa1
-        margin-left: 45px      
-        margin-right: 50px      
-        display: inline-block
-        margin-top: 15px
+        .dataa2
+            display: inline-block
 
-    .dataa1 a:hover,
-    .dataa2 a:hover
-        border: none
-        color: #fff
-        background-color: #6e45e2
+            a
+                padding: 19.5rem 46.5rem
+                
+        .dataa1
+            display: inline-block
+
+            a
+                padding: 19.5rem 62rem
+
+        .dataa1 a:hover,
+        .dataa2 a:hover
+            border: none
+            color: $colorwhite
+            background-color: #6e45e2
 
 .mini-wrapper
-    padding: 3% 5% 25px 
+    padding: 3% 5% 25rem
 
     .bottommenu li:last-child a
         border: none
-        color: #fff
+        color: $colorwhite
         background-color: #6e45e2    
 
     .bottommenu
-        padding-bottom: 40px
+        padding-bottom: 40rem
 
         ul
 
@@ -620,12 +669,12 @@ footer
         display: inline-block
         opacity: 0.200
         width: 100%
-        height: 1px
+        height: 1rem
         background-color: #bdbdc2
 
     .copy
         display: flex
-        padding: 20px 0 0
+        padding: 20rem 0 0
         flex-direction: column
         justify-content: space-between
         align-items: center
@@ -642,7 +691,7 @@ footer
             font-weight: 500 
 
         div
-            padding: 5px 0 0
+            padding: 5rem 0 0
             display: flex
             flex-wrap: nowrap
             flex-direction: row
@@ -651,10 +700,10 @@ footer
             .tw,
             .g,
             .inst
-                padding: 5px
+                padding: 5rem
                 opacity: 0.502
                 font-size: 16rem
-                line-height: 19px
+                line-height: 19rem
                 color: #6a6a77   
 
         
